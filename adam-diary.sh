@@ -32,7 +32,7 @@ case $num in
     1) ./createNote.sh;;
     2) clear
         ./adam-diary.sh;;
-    3) echo "By!";;
+    3) echo "Goodbye!";;
 
 
     *) ./error.sh;;
