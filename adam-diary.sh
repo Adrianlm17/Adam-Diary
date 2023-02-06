@@ -14,7 +14,8 @@ echo "|                                      |"
 echo "|                                      |"
 echo "|    1. Crear un archivo               |"
 echo "|    2. Limpiar consola                |"
-echo "|    3. EXIT                           |"
+echo "|    3. Timetable                      |"
+echo "|    9. EXIT                           |"
 echo "|                                      |"
 echo "|                                      |"
 echo "|                                      |"
@@ -32,9 +33,13 @@ case $num in
     1) ./createNote.sh;;
     2) clear
         ./adam-diary.sh;;
-    3) echo "Goodbye!";;
+    
+    3) ./timetable/timetable.sh;;
+    
+    
+    9) echo "Goodbye!";;
 
 
-    *) ./error.sh;;
+    *) ./errors/errorAdam.sh;;
 
 esac
