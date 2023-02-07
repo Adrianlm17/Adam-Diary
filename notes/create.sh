@@ -16,5 +16,4 @@ echo "Hora: $hora" >> tareas.txt
 echo "Nota: $nota" >> tareas.txt
 echo "--------------------" >> tareas.txt
 
-#Mensaje de exito
 echo "La tarea se ha añadido con éxito!"
