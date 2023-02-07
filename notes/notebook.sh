@@ -1,6 +1,5 @@
 #/!bin/bash
 
-
 echo "----------------------------------------"
 echo "|                                      |"
 echo "|                                      |"
@@ -8,32 +7,34 @@ echo "|              ADAM DIARY              |"
 echo "|                                      |"
 echo "----------------------------------------"
 echo "|                                      |"
-echo "|       Welcome to Adam's diary,       |"
+echo "|                Notes                 |"
 echo "|                                      |"
 echo "|                                      |"
 echo "|                                      |"
-echo "|    1. Notas                          |"
+echo "|    1. Create                         |"
 echo "|                                      |"
-echo "|    2. Timetable                      |"
+echo "|    2. Show notes                     |"
 echo "|                                      |"
-echo "|    9. Exit                           |"
+echo "|    3. Delete note                    |"
 echo "|                                      |"
+echo "|    4. Exit                           |"
 echo "|                                      |"
 echo "----------------------------------------"
 echo select an option:
-
 
 read num
 
 
 case $num in
 
-    1) ./createNote.sh;;
+    1) ./create.sh;;
 
-    2) ./timetable/timetable.sh;;
+    2) ./tareas.txt;;
     
-    9) echo "Goodbye!";;
+    3) ./delete.sh;;
 
-    *) ./errors/errorAdam.sh;;
+    4) echo "Goodbye!";;
+
+    *) ./errors/errorGeneral.sh
 
 esac

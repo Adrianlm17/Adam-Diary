@@ -5,7 +5,7 @@ clear
 echo
 echo
 echo
-echo "Plis, select a correct opton!"
+echo "Please, select a correct option!"
 echo
 echo
 echo
