@@ -1,14 +1,31 @@
 #!/bin/bash
+read -p "Introduzca la tarea: " tarea
 
-read -p "Introduzca la fecha de la tarea (YYYY-MM-DD):" date
+while true; do
 
-read -p "Introduzca la hora de la tarea (HH:MM:SS):" time
+    read -p "Introduzca la fecha de la tarea: " date
 
-read -p "Introduzca la calificación de la tarea:" note
+    if [[ $date =~ ^[0-9]+$ ]]; then
+    break
 
-echo "date: $date" >> tasks.txt
-echo "time: $time" >> tasks.txt
-echo "note: $note" >> tasks.txt
-echo "--------------------" >> ./files/tasks.txt
+    else
+    echo "Introduce un valor numérico."
+  fi
+done
 
-echo "La tarea se ha añadido correctamente!"
+while true; do
+
+    read -p "Introduzca la hora de la tarea: " time
+
+    if [[ $time =~ ^[0-9]+$ ]]; then
+    break
+
+    else
+    echo "Introduce un valor numérico."
+  fi
+done
+
+echo "tarea: $tarea" "fecha: $date" "hora: $time" >> ./adam-diary/es/files/tasks.txt
+echo " " >> ./adam-diary/es/files/tasks.txt
+
+notify-send "La tarea $tarea se ha añadido correctamente!"

@@ -28,7 +28,7 @@ read num
 
 case $num in
 
-    1) ./createNote.sh;;
+    1) ./notes/create.sh;;
 
     2) ./timetable/timetable.sh;;
     

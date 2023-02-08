@@ -3,12 +3,9 @@
 
 echo "----------------------------------------"
 echo "|                                      |"
-echo "|                                      |"
 echo "|              ADAM DIARY              |"
 echo "|                                      |"
 echo "----------------------------------------"
-echo "|                                      |"
-echo "|        Bienvenido a ADAM DIARY!      |"
 echo "|                                      |"
 echo "|                                      |"
 echo "|                                      |"
@@ -16,20 +13,24 @@ echo "|    1. Notas                          |"
 echo "|                                      |"
 echo "|    2. Horario                        |"
 echo "|                                      |"
-echo "|    9. SALIR                          |"
+echo "|    3. ChatGPT                        |"
+echo "|                                      |"
+echo "|    5. Salir                          |"
 echo "|                                      |"
 echo "|                                      |"
 echo "----------------------------------------"
-read -p "Seleccione una opción:" num
+read -p "Seleccione una opción: " num
 
 
 case $num in
 
-    1) ./createNote.sh;;
+    1) ./adam-diary/es/notes/notebook.sh;;
 
     2) ./timetable/timetable.sh;;
+
+    3) ./adam-diary/es/gpt/chat.sh;;
     
-    9)  echo "Adios!";;
+    5)  echo "Adios!";;
 
     *)  ./errors/errorAdam.sh;;
 
