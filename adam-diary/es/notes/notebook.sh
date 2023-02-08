@@ -1,23 +1,18 @@
 #/!bin/bash
 
 echo "----------------------------------------"
-echo "|                                      |"
-echo "|                                      |"
-echo "|              ADAM DIARY              |"
-echo "|                                      |"
+echo "|              TAREAS ADAM             |"
 echo "----------------------------------------"
 echo "|                                      |"
-echo "|                NOTAS                 |"
+echo "|    1. Crear tarea                    |"
 echo "|                                      |"
+echo "|    2. Abrir fichero                  |"
 echo "|                                      |"
+echo "|    3. Ver tareas                     |"
 echo "|                                      |"
-echo "|    1. Crear nota                     |"
+echo "|    3. Eliminar tarea                 |"
 echo "|                                      |"
-echo "|    2. Ver notas                      |"
-echo "|                                      |"
-echo "|    3. Eliminar nota                  |"
-echo "|                                      |"
-echo "|    4. SALIR                          |"
+echo "|    4. Salir                          |"
 echo "|                                      |"
 echo "----------------------------------------"
 read -p "seleccione una opción: " num
@@ -27,12 +22,14 @@ case $num in
 
     1) ./adam-diary/es/notes/create.sh;;
 
-    2) cat ./adam-diary/es/files/tasks.txt;;
+    2) nano ./adam-diary/es/files/tasks.txt;;
     
-    3) ./adam-diary/es/notes/delete.sh;;
+    3) less ./adam-diary/es/files/tasks.txt;;
 
-    4) echo "Adios!";;
+    4) ./adam-diary/es/notes/delete.sh;;
 
-    *) ./adam-diary/es/errors/errorNotes.sh
+    4) echo "Hasta la próxima!";;
+
+    *) ./errors/errorNotes.sh
 
 esac
