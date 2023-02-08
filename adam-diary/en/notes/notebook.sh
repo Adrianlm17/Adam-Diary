@@ -25,14 +25,14 @@ read -p "select an option: " num
 
 case $num in
 
-    1) ./create.sh;;
+    1) ./adam-diary/en/notes/create.sh;;
 
-    2) ./files/tasks.txt;;
+    2) cat ./adam-diary/en/files/tasks.txt;;
     
-    3) ./delete.sh;;
+    3) ./adam-diary/en/notes/delete.sh;;
 
     4) echo "Goodbye!";;
 
-    *) ./errors/errorNotes.sh
+    *) ./adam-diary/en/errors/errorNotes.sh
 
 esac

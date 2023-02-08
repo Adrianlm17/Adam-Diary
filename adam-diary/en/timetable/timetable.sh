@@ -26,65 +26,65 @@ case $num in
 
     1) clear
        read -p "Indicate the name of the file where you have the timetable: " saveTimetable
-       if [ -f ./files/$saveTimetable ];
+       if [ -f ./adam-diary/en/files/$saveTimetable ];
        then
             clear
             echo
             echo
-            cat ./files/$saveTimetable
+            cat ./adam-diary/en/files/$saveTimetable
             echo 
             echo
-            ./timetable/general-menu.sh
+            ./adam-diary/en/timetable/general-menu.sh
        else
             clear
             echo
             echo "The indicated file does not exist!"
             echo
-            ./timetable/timetable.sh
+            ./adam-diary/en/timetable/timetable.sh
        fi;;
 
     2) clear
        read -p "Enter the name of the timetable: " createFile
-       nano ./files/$createFile
-       ./timetable/general-menu.sh;;
+       nano ./adam-diary/en/files/$createFile
+       ./adam-diary/en/timetable/general-menu.sh;;
     
     3) clear
        read -p "Enter the name of the file to be modified: " modifiedFile
-       if [ -f ./files/$modifiedFile ];
+       if [ -f ./adam-diary/en/files/$modifiedFile ];
        then
-            nano ./files/$modifiedFile
+            nano ./adam-diary/en/files/$modifiedFile
             echo 
             echo
-            ./timetable/general-menu.sh
+            ./adam-diary/en/timetable/general-menu.sh
        else
             clear
             echo
             echo "The indicated file does not exist!"
             echo
-            ./timetable/timetable.sh
+            ./adam-diary/en/timetable/timetable.sh
        fi;;
 
     4) clear
        read -p "Indicates the name of the file to be deleted: " rmFile
-       if [ -f ./files/$rmFile ]; then
+       if [ -f ./adam-diary/en/files/$rmFile ]; then
             clear;
             echo;
             echo;
-            rm ./files/$rmFile;
+            rm ./adam-diary/en/files/$rmFile;
             echo ;
             echo "The File "$rmFile" has been successfully deleted!";
             echo;
-            ./timetable/general-menu.sh;
+            ./adam-diary/en/timetable/general-menu.sh;
        else
             clear;
             echo;
             echo "The indicated file does not exist!";
             echo;
-            ./timetable/timetable.sh;
+            ./adam-diary/en/timetable/timetable.sh;
        fi
        echo ;;
 
 
-    *) ./errors/errorTimetable.sh;;
+    *) ./adam-diary/en/errors/errorTimetable.sh;;
 
 esac

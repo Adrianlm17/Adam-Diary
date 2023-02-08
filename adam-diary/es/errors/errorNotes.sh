@@ -10,4 +10,4 @@ echo
 echo
 echo
 
-./notebook.sh;
+./adam-diary/es/notes/notebook.sh;

@@ -14,10 +14,10 @@ then
     powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('$text');"
     read -p "Please enter the grade for the assignment:" note
 
-    echo "date: $date" >> tasks.txt
-    echo "time: $time" >> tasks.txt
-    echo "note: $note" >> tasks.txt
-    echo "--------------------" >> ./files/tasks.txt
+    echo "date: $date" >> ./adam-diary/es/files/tasks.txt
+    echo "time: $time" >> ./adam-diary/es/files/tasks.txt
+    echo "note: $note" >> ./adam-diary/es/files/tasks.txt
+    echo "--------------------" >> ./adam-diary-voice/en/files/tasks.txt
 
     text="The task has been successfully added!"
     powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('$text');"
@@ -37,13 +37,15 @@ then
     echo "$text" | espeak -v es-la-sf
     read -p "Please enter the grade for the assignment:" note
 
-    echo "date: $date" >> tasks.txt
-    echo "time: $time" >> tasks.txt
-    echo "note: $note" >> tasks.txt
-    echo "--------------------" >> ./files/tasks.txt
+    echo "date: $date" >> ./adam-diary/es/files/tasks.txt
+    echo "time: $time" >> ./adam-diary/es/files/tasks.txt
+    echo "note: $note" >> ./adam-diary/es/files/tasks.txt
+    echo "--------------------" >> ./adam-diary-voice/en/files/tasks.txt
 
     text="The task has been successfully added!"
     echo "$text" | espeak -v es-la-sf
     echo "The task has been successfully added!"
 
 fi
+
+./adam-diary-voice/en/notes/notebook.sh;

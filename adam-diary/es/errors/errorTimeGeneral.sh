@@ -10,4 +10,4 @@ echo
 echo
 echo
 
-./general-menu.sh;
+./adam-diary/es/timetable/general-menu.sh;

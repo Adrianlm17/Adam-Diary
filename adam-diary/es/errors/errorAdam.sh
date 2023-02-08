@@ -10,4 +10,4 @@ echo
 echo
 echo
 
-./adam-diary.sh;
+./adam-diary/es/adam-diary.sh;

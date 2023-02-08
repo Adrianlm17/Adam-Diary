@@ -20,17 +20,46 @@ echo "|    9. Exit                           |"
 echo "|                                      |"
 echo "|                                      |"
 echo "----------------------------------------"
-read -p "select an option:" num
+
+if [[ "$OSTYPE" == "msys" ]]
+then
+
+    text="Select one of the options given in the terminal: "
+    powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('$text');"
+    read -p "Select one of the options given in the terminal:  " num
+
+elif [[ "$OSTYPE" == "linux-gnu" ]]
+then
+
+    text="Select one of the options given in the terminal: "
+    echo "$text" | espeak -v es-la-sf
+    read -p "Select one of the options given in the terminal:  " num
+
+fi
 
 
 case $num in
 
-    1) ./createNote.sh;;
+    1) ./adam-diary-voice/en/notes/notebook.sh;;
 
-    2) ./timetable/timetable.sh;;
+    2) ./adam-diary-voice/en/timetable/timetable.sh;;
     
-    9)  echo "Goodbye!";;
+    9)  if [[ "$OSTYPE" == "msys" ]]
+        then
 
-    *)  ./errors/errorAdam.sh;;
+            text="Goodbye!"
+            powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('$text');"
+            echo "Goodbye!"
+            
+        elif [[ "$OSTYPE" == "linux-gnu" ]]
+        then
+
+            text="Goodbye!"
+            echo "$text" | espeak -v es-la-sf
+            
+        fi
+        echo "";;
+
+    *)  ./adam-diary-voice/en/errors/errorAdam.sh;;
 
 esac

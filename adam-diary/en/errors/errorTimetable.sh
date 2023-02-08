@@ -10,4 +10,4 @@ echo
 echo
 echo
 
-./timetable/timetable.sh;
+./adam-diary/en/timetable/timetable.sh;

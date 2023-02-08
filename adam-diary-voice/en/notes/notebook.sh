@@ -20,19 +20,51 @@ echo "|                                      |"
 echo "|    4. Exit                           |"
 echo "|                                      |"
 echo "----------------------------------------"
-read -p "select an option: " num
+
+if [[ "$OSTYPE" == "msys" ]]
+then
+
+    text="Select one of the options given in the terminal: "
+    powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('$text');"
+    read -p "Select one of the options given in the terminal:  " num
+
+elif [[ "$OSTYPE" == "linux-gnu" ]]
+then
+
+    text="Select one of the options given in the terminal: "
+    echo "$text" | espeak -v es-la-sf
+    read -p "Select one of the options given in the terminal:  " num
+
+fi
+
+
 
 
 case $num in
 
-    1) ./create.sh;;
+    1) ./adam-diary-voice/en/notes/create.sh;;
 
-    2) ./files/tasks.txt;;
+    2) cat ./adam-diary-voice/en/files/tasks.txt;;
     
-    3) ./delete.sh;;
+    3) ./adam-diary-voice/en/notes/delete.sh;;
 
-    4) echo "Goodbye!";;
+    4) if [[ "$OSTYPE" == "msys" ]]
+        then
 
-    *) ./errors/errorNotes.sh
+            text="Goodbye!"
+            powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('$text');"
+            echo "Goodbye!"
+            
+        elif [[ "$OSTYPE" == "linux-gnu" ]]
+        then
+
+            text="Goodbye!"
+            echo "$text" | espeak -v es-la-sf
+            
+        fi
+        echo "";;
+
+
+    *) ./adam-diary-voice/en/errors/errorNotes.sh
 
 esac

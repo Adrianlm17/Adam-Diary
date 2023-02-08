@@ -14,4 +14,4 @@ then
 
 fi
 
-./timetable/timetable.sh;
+./adam-diary-voice/en/timetable/timetable.sh;

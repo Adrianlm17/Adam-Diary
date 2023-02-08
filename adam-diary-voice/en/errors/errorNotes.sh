@@ -14,4 +14,4 @@ then
 
 fi
 
-./notebook.sh;
+./adam-diary-voice/en/notes/notebook.sh;

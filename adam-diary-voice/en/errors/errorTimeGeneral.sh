@@ -14,4 +14,4 @@ then
 
 fi
 
-./general-menu.sh;
+./adam-diary-voice/en/timetable/general-menu.sh;

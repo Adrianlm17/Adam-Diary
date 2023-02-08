@@ -5,10 +5,10 @@ read -p "¿Desea volver al menú principal? (S)Si/(N)No: " option
 case $option in
 
     S) clear
-       ./adam-diary.sh;;
+       ./adam-diary/es/adam-diary.sh;;
 
     N) echo "Adios!";;
 
-    *) ./errors/errorTimeGeneral.sh;;
+    *) ./adam-diary/es/errors/errorTimeGeneral.sh;;
 
 esac

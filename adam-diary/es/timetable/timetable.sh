@@ -26,65 +26,65 @@ case $num in
 
     1) clear
        read -p "Indique el nombre del fichero donde tiene el horario: " saveTimetable
-       if [ -f ./files/$saveTimetable ];
+       if [ -f ./adam-diary/es/files/$saveTimetable ];
        then
             clear
             echo
             echo
-            cat ./files/$saveTimetable
+            cat ./adam-diary/es/files/$saveTimetable
             echo 
             echo
-            ./timetable/general-menu.sh
+            ./adam-diary/es/timetable/general-menu.sh
        else
             clear
             echo
             echo "El fichero indicado no existe!"
             echo
-            ./timetable/timetable.sh
+            ./adam-diary/es/timetable/timetable.sh
        fi;;
 
     2) clear
        read -p "Introduzca el nombre del horario: " createFile
-       nano ./files/$createFile
-       ./timetable/general-menu.sh;;
+       nano ./adam-diary/es/files/$createFile
+       ./adam-diary/es/timetable/general-menu.sh;;
     
     3) clear
        read -p "Introduzca el nombre del fichero que desea modificar: " modifiedFile
-       if [ -f ./files/$modifiedFile ];
+       if [ -f ./adam-diary/es/files/$modifiedFile ];
        then
-            nano ./files/$modifiedFile
+            nano ./adam-diary/es/files/$modifiedFile
             echo 
             echo
-            ./timetable/general-menu.sh
+            ./adam-diary/es/timetable/general-menu.sh
        else
             clear
             echo
             echo "El fichero indicado no existe!"
             echo
-            ./timetable/timetable.sh
+            ./adam-diary/es/timetable/timetable.sh
        fi;;
 
     4) clear
        read -p "Indica el nombre del fichero a borrar: " rmFile
-       if [ -f ./files/$rmFile ]; then
+       if [ -f ./adam-diary/es/files/$rmFile ]; then
             clear;
             echo;
             echo;
-            rm ./files/$rmFile;
+            rm ./adam-diary/es/files/$rmFile;
             echo ;
             echo "El archivo "$rmFile" se ha eliminado correctamente!";
             echo;
-            ./timetable/general-menu.sh;
+            ./adam-diary/es/timetable/general-menu.sh;
        else
             clear;
             echo;
             echo "El fichero indicado no existe!";
             echo;
-            ./timetable/timetable.sh;
+            ./adam-diary/es/timetable/timetable.sh;
        fi
        echo ;;
 
 
-    *) ./errors/errorTimetable.sh;;
+    *) ./adam-diary/es/errors/errorTimetable.sh;;
 
 esac

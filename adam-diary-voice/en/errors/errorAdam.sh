@@ -15,4 +15,4 @@ then
 
 fi
 
-./adam-diary.sh;
+./adam-diary-voice/en/adam-diary.sh;

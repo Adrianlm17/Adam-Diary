@@ -2,12 +2,17 @@
 
 clear
 
-echo
-echo
-echo
-echo "Por favor, seleccione la opción correcta."
-echo
-echo
-echo
 
-./adam-diary.sh;
+if [[ "$OSTYPE" == "msys" ]]
+then
+    error="Por favor, seleccione la opción correcta!"
+    powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('$error');"
+
+elif [[ "$OSTYPE" == "linux-gnu" ]]
+then
+    error="Por favor, seleccione la opción correcta!"
+    echo "$error" | espeak -v es-la-sf
+
+fi
+
+./adam-diary-voice/es/adam-diary.sh;

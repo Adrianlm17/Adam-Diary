@@ -25,12 +25,12 @@ read -p "Seleccione una opción:" num
 
 case $num in
 
-    1) ./createNote.sh;;
+    1) ./adam-diary/es/notes/notebook.sh;;
 
-    2) ./timetable/timetable.sh;;
+    2) ./adam-diary/es/timetable/timetable.sh;;
     
     9)  echo "Adios!";;
 
-    *)  ./errors/errorAdam.sh;;
+    *)  ./adam-diary/es/errors/errorAdam.sh;;
 
 esac

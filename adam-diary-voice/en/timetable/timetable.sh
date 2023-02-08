@@ -18,73 +18,201 @@ echo "|                                      |"
 echo "|                                      |"
 echo "----------------------------------------"
 
+if [[ "$OSTYPE" == "msys" ]]
+then
 
-read num
+    text="Select one of the options given in the terminal: "
+    powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('$text');"
+    read -p "Select one of the options given in the terminal:  " num
+
+elif [[ "$OSTYPE" == "linux-gnu" ]]
+then
+
+    text="Select one of the options given in the terminal: "
+    echo "$text" | espeak -v es-la-sf
+    read -p "Select one of the options given in the terminal:  " num
+
+fi
 
 
 case $num in
 
     1) clear
-       read -p "Indicate the name of the file where you have the timetable: " saveTimetable
-       if [ -f ./files/$saveTimetable ];
+       if [[ "$OSTYPE" == "msys" ]]
+          then
+
+          text="Indicate the name of the file where you have the timetable: "
+          powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('$text');"
+          read -p "Indicate the name of the file where you have the timetable: " saveTimetable
+
+          elif [[ "$OSTYPE" == "linux-gnu" ]]
+          then
+
+          text="Indicate the name of the file where you have the timetable: "
+          echo "$text" | espeak -v es-la-sf
+          read -p "Indicate the name of the file where you have the timetable:  " saveTimetable
+
+          fi
+
+       if [ -f ./adam-diary-voice/en/files/$saveTimetable ];
        then
             clear
             echo
             echo
-            cat ./files/$saveTimetable
+            cat ./adam-diary-voice/en/files/$saveTimetable
             echo 
             echo
-            ./timetable/general-menu.sh
+            ./adam-diary-voice/en/timetable/general-menu.sh
        else
             clear
             echo
-            echo "The indicated file does not exist!"
+            if [[ "$OSTYPE" == "msys" ]]
+               then
+
+               text="The indicated file does not exist!"
+               powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('$text');"
+               read -p "The indicated file does not exist!" saveTimetable
+
+               elif [[ "$OSTYPE" == "linux-gnu" ]]
+               then
+
+               text="The indicated file does not exist!"
+               echo "$text" | espeak -v es-la-sf
+               read -p "The indicated file does not exist!" saveTimetable
+
+               fi
             echo
-            ./timetable/timetable.sh
+            ./adam-diary-voice/en/timetable/timetable.sh
        fi;;
 
     2) clear
-       read -p "Enter the name of the timetable: " createFile
-       nano ./files/$createFile
-       ./timetable/general-menu.sh;;
+       if [[ "$OSTYPE" == "msys" ]]
+               then
+
+               text="Enter the name of the timetable: "
+               powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('$text');"
+               read -p "Enter the name of the timetable: " createFile
+
+               elif [[ "$OSTYPE" == "linux-gnu" ]]
+               then
+
+               text="Enter the name of the timetable: "
+               echo "$text" | espeak -v es-la-sf
+               read -p "Enter the name of the timetable: " createFile
+
+               fi
+       nano ./adam-diary-voice/en/files/$createFile
+       ./adam-diary-voice/en/timetable/general-menu.sh;;
     
     3) clear
-       read -p "Enter the name of the file to be modified: " modifiedFile
-       if [ -f ./files/$modifiedFile ];
+       if [[ "$OSTYPE" == "msys" ]]
+               then
+
+               text="Enter the name of the file to be modified: "
+               powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('$text');"
+               read -p "Enter the name of the file to be modified: " modifiedFile
+
+               elif [[ "$OSTYPE" == "linux-gnu" ]]
+               then
+
+               text="Enter the name of the file to be modified: "
+               echo "$text" | espeak -v es-la-sf
+               read -p "Enter the name of the file to be modified: " modifiedFile
+
+               fi
+
+       if [ -f ./adam-diary-voice/en/files/$modifiedFile ];
        then
-            nano ./files/$modifiedFile
+            nano ./adam-diary-voice/en/files/$modifiedFile
             echo 
             echo
-            ./timetable/general-menu.sh
+            ./adam-diary-voice/en/timetable/general-menu.sh
        else
             clear
             echo
-            echo "The indicated file does not exist!"
+            if [[ "$OSTYPE" == "msys" ]]
+               then
+
+               text="The indicated file does not exist!"
+               powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('$text');"
+               read -p "The indicated file does not exist!" saveTimetable
+
+               elif [[ "$OSTYPE" == "linux-gnu" ]]
+               then
+
+               text="The indicated file does not exist!"
+               echo "$text" | espeak -v es-la-sf
+               read -p "The indicated file does not exist!" saveTimetable
+
+               fi
             echo
-            ./timetable/timetable.sh
+            ./adam-diary-voice/en/timetable/timetable.sh
        fi;;
 
     4) clear
-       read -p "Indicates the name of the file to be deleted: " rmFile
-       if [ -f ./files/$rmFile ]; then
+       echo
+            if [[ "$OSTYPE" == "msys" ]]
+               then
+
+               text="Indicates the name of the file to be deleted:"
+               powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('$text');"
+               read -p "Indicates the name of the file to be deleted:" rmFile
+
+               elif [[ "$OSTYPE" == "linux-gnu" ]]
+               then
+
+               text="Indicates the name of the file to be deleted:"
+               echo "$text" | espeak -v es-la-sf
+               read -p "Indicates the name of the file to be deleted:" rmFile
+
+               fi
+            echo
+            
+       if [ -f ./adam-diary-voice/en/files/$rmFile ]; then
             clear;
             echo;
             echo;
-            rm ./files/$rmFile;
+            rm ./adam-diary-voice/en/files/$rmFile;
             echo ;
-            echo "The File "$rmFile" has been successfully deleted!";
+            if [[ "$OSTYPE" == "msys" ]]
+               then
+
+               text="The File "$rmFile" has been successfully deleted!"
+               powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('$text');"
+
+               elif [[ "$OSTYPE" == "linux-gnu" ]]
+               then
+
+               text="The File "$rmFile" has been successfully deleted!"
+               echo "$text" | espeak -v es-la-sf
+
+               fi
             echo;
-            ./timetable/general-menu.sh;
+            ./adam-diary-voice/en/timetable/general-menu.sh;
        else
-            clear;
-            echo;
-            echo "The indicated file does not exist!";
-            echo;
-            ./timetable/timetable.sh;
+            clear
+            echo
+            if [[ "$OSTYPE" == "msys" ]]
+               then
+
+               text="The indicated file does not exist!"
+               powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('$text');"
+               read -p "The indicated file does not exist!" saveTimetable
+
+               elif [[ "$OSTYPE" == "linux-gnu" ]]
+               then
+
+               text="The indicated file does not exist!"
+               echo "$text" | espeak -v es-la-sf
+               read -p "The indicated file does not exist!" saveTimetable
+
+               fi
+            echo
+            ./adam-diary-voice/en/timetable/timetable.sh;
        fi
        echo ;;
 
 
-    *) ./errors/errorTimetable.sh;;
+    *) ./adam-diary-voice/en/errors/errorTimetable.sh;;
 
 esac
