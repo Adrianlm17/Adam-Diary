@@ -28,4 +28,15 @@ done
 echo "tarea: $tarea" "fecha: $date" "hora: $time" >> ./adam-diary/es/files/tasks.txt
 echo " " >> ./adam-diary/es/files/tasks.txt
 
-notify-send "La tarea $tarea se ha añadido correctamente!"
+
+if [[ "$OSTYPE" == "msys" ]]
+then
+  powershell.exe -Command "Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('$tarea')"
+
+elif [[ "$OSTYPE" == "linux-gnu" ]]
+then
+  notify-send "La tarea $tarea se ha añadido correctamente!"
+
+fi
+
+./adam-diary/es/notes/notebook.sh;

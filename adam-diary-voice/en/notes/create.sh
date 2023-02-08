@@ -2,49 +2,89 @@
 
 if [[ "$OSTYPE" == "msys" ]]
 then
-    text="Please enter the date of the task (YYYY-MM-DD):"
+    text="Enter the task:"
     powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('$text');"
-    read -p "Please enter the date of the task (YYYY-MM-DD):" date
+    read -p "Enter the task: " tarea
 
-    text="Please enter the time of the task (HH:MM:SS):"
+    while true; do
+
+    text="Enter the date of the task:"
     powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('$text');"
-    read -p "Please enter the time of the task (HH:MM:SS):" time
+    read -p "Enter the date of the task: " date
 
-    text="Please enter the grade for the assignment:"
+    if [[ $date =~ ^[0-9]+$ ]]; then
+    break
+
+    else
+    text="Enter a numerical value:"
     powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('$text');"
-    read -p "Please enter the grade for the assignment:" note
+    echo "Enter a numerical value:"
+    fi
+    done
 
-    echo "date: $date" >> ./adam-diary/es/files/tasks.txt
-    echo "time: $time" >> ./adam-diary/es/files/tasks.txt
-    echo "note: $note" >> ./adam-diary/es/files/tasks.txt
-    echo "--------------------" >> ./adam-diary-voice/en/files/tasks.txt
+    while true; do
 
-    text="The task has been successfully added!"
+    text="Enter the time of the task:"
     powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('$text');"
-    echo "The task has been successfully added!"
+    read -p "Enter the time of the task: " time
+
+    if [[ $time =~ ^[0-9]+$ ]]; then
+    break
+
+    else
+    text="Enter a numerical value:"
+    powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('$text');"
+    echo "Enter a numerical value:"
+    fi
+    done
+
+    echo "task: $tarea" "date: $date" "time: $time" >> ./adam-diary/en/files/tasks.txt
+    echo " " >> ./adam-diary/en/files/tasks.txt
+
+    powershell.exe -Command "Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('The task $tarea has been successfully added!')"
 
 elif [[ "$OSTYPE" == "linux-gnu" ]]
 then
-    text="Please enter the date of the task (YYYY-MM-DD):"
+    text="Enter the task:"
     echo "$text" | espeak -v es-la-sf
-    read -p "Please enter the date of the task (YYYY-MM-DD):" date
+    read -p "Enter the task: " tarea
 
-    text="Please enter the time of the task (HH:MM:SS):"
+    while true; do
+
+    text="Enter the date of the task:"
     echo "$text" | espeak -v es-la-sf
-    read -p "Please enter the time of the task (HH:MM:SS):" time
+    read -p "Enter the date of the task: " date
 
-    text="Please enter the grade for the assignment:"
+    if [[ $date =~ ^[0-9]+$ ]]; then
+    break
+
+    else
+    text="Enter a numerical value:"
     echo "$text" | espeak -v es-la-sf
-    read -p "Please enter the grade for the assignment:" note
+    echo "Enter a numerical value:"
+    fi
+    done
 
-    echo "date: $date" >> ./adam-diary/es/files/tasks.txt
-    echo "time: $time" >> ./adam-diary/es/files/tasks.txt
-    echo "note: $note" >> ./adam-diary/es/files/tasks.txt
-    echo "--------------------" >> ./adam-diary-voice/en/files/tasks.txt
+    while true; do
 
-    text="The task has been successfully added!"
+    text="Enter the time of the task:"
     echo "$text" | espeak -v es-la-sf
-    echo "The task has been successfully added!"
+    read -p "Enter the time of the task: " time
+
+    if [[ $time =~ ^[0-9]+$ ]]; then
+    break
+
+    else
+    text="Enter a numerical value:"
+    echo "$text" | espeak -v es-la-sf
+    echo "Enter a numerical value:"
+    fi
+    done
+
+    echo "task: $tarea" "date: $date" "time: $time" >> ./adam-diary/en/files/tasks.txt
+    echo " " >> ./adam-diary/en/files/tasks.txt
+
+    notify-send "The task $tarea has been successfully added!"
 
 fi
 

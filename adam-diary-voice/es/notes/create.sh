@@ -2,50 +2,90 @@
 
 if [[ "$OSTYPE" == "msys" ]]
 then
-    text="Introduzca la fecha de la tarea (YYYY-MM-DD):"
+    text="Introduzca la tarea:"
     powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('$text');"
-    read -p "Introduzca la fecha de la tarea (YYYY-MM-DD):" date
+    read -p "Introduzca la tarea: " tarea
 
-    text="Introduzca la hora de la tarea (HH:MM:SS):"
+    while true; do
+
+    text="Introduzca la fecha de la tarea:"
     powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('$text');"
-    read -p "Introduzca la hora de la tarea (HH:MM:SS):" time
+    read -p "Introduzca la fecha de la tarea: " date
 
-    text="Introduzca la calificación de la tarea:"
+    if [[ $date =~ ^[0-9]+$ ]]; then
+    break
+
+    else
+    text="Introduzca un valor numérico:"
     powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('$text');"
-    read -p "Introduzca la calificación de la tarea:" note
+    echo "Introduzca un valor numérico:"
+    fi
+    done
 
-    echo "date: $date" >> ./adam-diary/es/files/tasks.txt
-    echo "time: $time" >> ./adam-diary/es/files/tasks.txt
-    echo "note: $note" >> ./adam-diary/es/files/tasks.txt
-    echo "--------------------" >> ./files/tasks.txt
+    while true; do
 
-    text="La tarea se ha añadido correctamente!"
+    text="Introduzca la hora de la tarea:"
     powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('$text');"
-    echo "La tarea se ha añadido correctamente!"
+    read -p "Introduzca la hora de la tarea: " time
+
+    if [[ $time =~ ^[0-9]+$ ]]; then
+    break
+
+    else
+    text="Introduzca un valor numérico:"
+    powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('$text');"
+    echo "Introduzca un valor numérico:"
+    fi
+    done
+
+    echo "tarea: $tarea" "fecha: $date" "hora: $time" >> ./adam-diary/en/files/tasks.txt
+    echo " " >> ./adam-diary/en/files/tasks.txt
+
+    powershell.exe -Command "Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('La tarea $tarea se ha añadido correctamente!')"
 
 elif [[ "$OSTYPE" == "linux-gnu" ]]
 then
-    text="Introduzca la fecha de la tarea (YYYY-MM-DD):"
+    text="Introduzca la tarea:"
     echo "$text" | espeak -v es-la-sf
-    read -p "Introduzca la fecha de la tarea (YYYY-MM-DD):" date
+    read -p "Introduzca la tarea: " tarea
 
-    text="Introduzca la hora de la tarea (HH:MM:SS):"
+    while true; do
+
+    text="Introduzca la fecha de la tarea:"
     echo "$text" | espeak -v es-la-sf
-    read -p "Introduzca la hora de la tarea (HH:MM:SS):" time
+    read -p "Introduzca la fecha de la tarea: " date
 
-    text="Introduzca la calificación de la tarea:"
+    if [[ $date =~ ^[0-9]+$ ]]; then
+    break
+
+    else
+    text="Introduzca un valor numérico:"
     echo "$text" | espeak -v es-la-sf
-    read -p "Introduzca la calificación de la tarea:" note
+    echo "Introduzca un valor numérico:"
+    fi
+    done
 
-    echo "date: $date" >> ./adam-diary/es/files/tasks.txt
-    echo "time: $time" >> ./adam-diary/es/files/tasks.txt
-    echo "note: $note" >> ./adam-diary/es/files/tasks.txt
-    echo "--------------------" >> ./adam-diary-voice/es/files/tasks.txt
+    while true; do
 
-    text="La tarea se ha añadido correctamente!"
+    text="Introduzca la hora de la tarea:"
     echo "$text" | espeak -v es-la-sf
-    echo "La tarea se ha añadido correctamente!"
+    read -p "Introduzca la hora de la tarea: " time
+
+    if [[ $time =~ ^[0-9]+$ ]]; then
+    break
+
+    else
+    text="Introduzca un valor numérico:"
+    echo "$text" | espeak -v es-la-sf
+    echo "Introduzca un valor numérico:"
+    fi
+    done
+
+    echo "tarea: $tarea" "fecha: $date" "hora: $time" >> ./adam-diary/en/files/tasks.txt
+    echo " " >> ./adam-diary/en/files/tasks.txt
+
+    notify-send "La tarea $tarea se ha añadido correctamente!"
 
 fi
 
-./adam-diary-voice/es/notes/notebook.sh;
+./adam-diary-voice/en/notes/notebook.sh;

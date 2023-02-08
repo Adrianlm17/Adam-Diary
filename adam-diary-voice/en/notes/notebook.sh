@@ -44,9 +44,9 @@ case $num in
 
     1) ./adam-diary-voice/en/notes/create.sh;;
 
-    2) cat ./adam-diary-voice/en/files/tasks.txt;;
+    2) nano ./adam-diary-voice/en/files/tasks.txt;;
     
-    3) ./adam-diary-voice/en/notes/delete.sh;;
+    3) less ./adam-diary-voice/en/notes/delete.sh;;
 
     4) if [[ "$OSTYPE" == "msys" ]]
         then

@@ -27,9 +27,9 @@ case $num in
 
     1) ./adam-diary/en/notes/create.sh;;
 
-    2) cat ./adam-diary/en/files/tasks.txt;;
+    2) nano ./adam-diary/en/files/tasks.txt;;
     
-    3) ./adam-diary/en/notes/delete.sh;;
+    3) less ./adam-diary/en/notes/delete.sh;;
 
     4) echo "Goodbye!";;
 
