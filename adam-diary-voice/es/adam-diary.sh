@@ -24,16 +24,16 @@ echo "----------------------------------------"
 if [[ "$OSTYPE" == "msys" ]]
 then
 
-    text="Select one of the options given in the terminal: "
+    text="Seleccione una de las opciones que aparecen en el terminal: "
     powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('$text');"
-    read -p "Select one of the options given in the terminal:  " num
+    read -p "Seleccione una de las opciones que aparecen en el terminal:  " num
 
 elif [[ "$OSTYPE" == "linux-gnu" ]]
 then
 
-    text="Select one of the options given in the terminal: "
+    text="Seleccione una de las opciones que aparecen en el terminal: "
     echo "$text" | espeak -v es-la-sf
-    read -p "Select one of the options given in the terminal:  " num
+    read -p "Seleccione una de las opciones que aparecen en el terminal:  " num
 
 fi
 
@@ -47,14 +47,14 @@ case $num in
     9)  if [[ "$OSTYPE" == "msys" ]]
         then
 
-            text="Goodbye!"
+            text="Adios!"
             powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('$text');"
-            echo "Goodbye!"
+            echo "Adios!"
             
         elif [[ "$OSTYPE" == "linux-gnu" ]]
         then
 
-            text="Goodbye!"
+            text="Adios!"
             echo "$text" | espeak -v es-la-sf
             
         fi
