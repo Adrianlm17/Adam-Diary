@@ -1,6 +1,5 @@
 #/!bin/bash
 
-
 echo "----------------------------------------"
 echo "|                                      |"
 echo "|                                      |"
@@ -8,33 +7,24 @@ echo "|              ADAM DIARY              |"
 echo "|                                      |"
 echo "----------------------------------------"
 echo "|                                      |"
-echo "|       Welcome to Adam's diary,       |"
+echo "|             CALENDARIO               |"
 echo "|                                      |"
 echo "|                                      |"
 echo "|                                      |"
-echo "|    1. Notes                          |"
+echo "|    1. Ver calendario                 |"
 echo "|                                      |"
-echo "|    2. Timetable                      |"
-echo "|                                      |"
-echo "|    3. Calendar                       |"
-echo "|                                      |"
-echo "|    9. Exit                           |"
-echo "|                                      |"
+echo "|    9. Salir                          |"
 echo "|                                      |"
 echo "----------------------------------------"
-read -p "select an option:" num
+read -p "Seleciona una opción valida: " num
 
 
 case $num in
 
-    1) ./adam-diary/en/notes/notebook.sh;;
+    1) ./adam-diary/es/calendar/showcalendar.sh;;
 
-    2) ./adam-diary/en/timetable/timetable.sh;;
+    9) echo "Adios!";;
 
-    3) ./adam-diary/en/calendar/calendar.sh;;
-    
-    9)  echo "Goodbye!";;
-
-    *)  ./adam-diary/en/errors/errorAdam.sh;;
+    *) ./adam-diary/es/errors/errorCalendar.sh
 
 esac

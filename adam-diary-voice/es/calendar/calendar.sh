@@ -1,6 +1,5 @@
 #/!bin/bash
 
-
 echo "----------------------------------------"
 echo "|                                      |"
 echo "|                                      |"
@@ -8,18 +7,13 @@ echo "|              ADAM DIARY              |"
 echo "|                                      |"
 echo "----------------------------------------"
 echo "|                                      |"
-echo "|        Bienvenido a ADAM DIARY!      |"
+echo "|             CALENDARIO               |"
 echo "|                                      |"
 echo "|                                      |"
 echo "|                                      |"
-echo "|    1. Notas                          |"
+echo "|    1. Ver calendario                 |"
 echo "|                                      |"
-echo "|    2. Horario                        |"
-echo "|                                      |"
-echo "|    3. Calendario                     |"
-echo "|                                      |"
-echo "|    9. SALIR                          |"
-echo "|                                      |"
+echo "|    9. Salir                          |"
 echo "|                                      |"
 echo "----------------------------------------"
 
@@ -42,13 +36,9 @@ fi
 
 case $num in
 
-    1) ./adam-diary-voice/es/notes/notebook.sh;;
+    1) ./adam-diary/es/calendar/showcalendar.sh;;
 
-    2) ./adam-diary-voice/es/timetable/timetable.sh;;
-    
-    3) ./adam-diary/es/calendar/calendar.sh;;
-    
-    9)  if [[ "$OSTYPE" == "msys" ]]
+    9) if [[ "$OSTYPE" == "msys" ]]
         then
 
             text="Adios!"
@@ -64,6 +54,6 @@ case $num in
         fi
         echo "";;
 
-    *)  ./adam-diary-voice/es/errors/errorAdam.sh;;
+    *) ./adam-diary/es/errors/errorCalendar.sh
 
 esac

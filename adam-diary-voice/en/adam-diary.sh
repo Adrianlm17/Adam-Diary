@@ -16,6 +16,8 @@ echo "|    1. Notes                          |"
 echo "|                                      |"
 echo "|    2. Timetable                      |"
 echo "|                                      |"
+echo "|    3. Calendar                       |"
+echo "|                                      |"
 echo "|    9. Exit                           |"
 echo "|                                      |"
 echo "|                                      |"
@@ -43,7 +45,9 @@ case $num in
     1) ./adam-diary-voice/en/notes/notebook.sh;;
 
     2) ./adam-diary-voice/en/timetable/timetable.sh;;
-    
+
+    3) ./adam-diary/en/calendar/calendar.sh;;
+       
     9)  if [[ "$OSTYPE" == "msys" ]]
         then
 

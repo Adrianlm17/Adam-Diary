@@ -1,6 +1,5 @@
 #/!bin/bash
 
-
 echo "----------------------------------------"
 echo "|                                      |"
 echo "|                                      |"
@@ -8,62 +7,53 @@ echo "|              ADAM DIARY              |"
 echo "|                                      |"
 echo "----------------------------------------"
 echo "|                                      |"
-echo "|        Bienvenido a ADAM DIARY!      |"
+echo "|               CALENDAR               |"
 echo "|                                      |"
 echo "|                                      |"
 echo "|                                      |"
-echo "|    1. Notas                          |"
+echo "|    1. See calendar                   |"
 echo "|                                      |"
-echo "|    2. Horario                        |"
-echo "|                                      |"
-echo "|    3. Calendario                     |"
-echo "|                                      |"
-echo "|    9. SALIR                          |"
-echo "|                                      |"
+echo "|    9. Exit                           |"
 echo "|                                      |"
 echo "----------------------------------------"
 
 if [[ "$OSTYPE" == "msys" ]]
 then
 
-    text="Seleccione una de las opciones que aparecen en el terminal: "
+    text="Select one of the options given in the terminal: "
     powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('$text');"
-    read -p "Seleccione una de las opciones que aparecen en el terminal:  " num
+    read -p "Select one of the options given in the terminal:  " num
 
 elif [[ "$OSTYPE" == "linux-gnu" ]]
 then
 
-    text="Seleccione una de las opciones que aparecen en el terminal: "
+    text="Select one of the options given in the terminal: "
     echo "$text" | espeak -v es-la-sf
-    read -p "Seleccione una de las opciones que aparecen en el terminal:  " num
+    read -p "Select one of the options given in the terminal:  " num
 
 fi
 
 
 case $num in
 
-    1) ./adam-diary-voice/es/notes/notebook.sh;;
+    1) ./adam-diary-voice/en/calendar/showcalendar.sh;;
 
-    2) ./adam-diary-voice/es/timetable/timetable.sh;;
-    
-    3) ./adam-diary/es/calendar/calendar.sh;;
-    
-    9)  if [[ "$OSTYPE" == "msys" ]]
+    9) if [[ "$OSTYPE" == "msys" ]]
         then
 
-            text="Adios!"
+            text="Goodbye!"
             powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('$text');"
-            echo "Adios!"
+            echo "Goodbye!"
             
         elif [[ "$OSTYPE" == "linux-gnu" ]]
         then
 
-            text="Adios!"
+            text="Goodbye!"
             echo "$text" | espeak -v es-la-sf
             
         fi
         echo "";;
 
-    *)  ./adam-diary-voice/es/errors/errorAdam.sh;;
+    *) ./adam-diary-voice/en/errors/errorCalendar.sh
 
 esac
