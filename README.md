@@ -17,8 +17,6 @@ Adam-Diary works as follows:
 3. Select the language in which you want everything to come out.
 4. Enjoy our agenda!
 
-Translated with www.DeepL.com/Translator (free version)
-
 
 ## ES
 
