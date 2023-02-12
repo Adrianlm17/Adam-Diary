@@ -8,6 +8,10 @@ This repository is a BASH final work in which we had to create a free script.
 
 In our case we thought to create a personal agenda, since it would give us a lot of play when creating different scripts.
 
+### Operating Systems
+
+This script is intended for Windows and Ubuntu operating systems.
+
 ### Usage
 
 Adam-Diary works as follows:
@@ -18,11 +22,16 @@ Adam-Diary works as follows:
 4. Enjoy our agenda!
 
 
+
 ## ES
 
 Este repositorio es un trabajo final de BASH el cual teniamos que crear un script libre.
 
 En nuestro caso pensamos en crear una agenda personal, dado que nos daría mucho juego a la hora de crear diferentes scripts.
+
+### Sistemas Operativos
+
+Este script esta pensado para los sistemas operativos Windows y Ubuntu
 
 ### Uso
 
