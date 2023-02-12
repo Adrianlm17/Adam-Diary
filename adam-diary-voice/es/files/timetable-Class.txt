@@ -1,0 +1,17 @@
+                                     HORARIO CLASES
+
+          LUNES          MARTES          MIERCOLES          JUEVES         VIERNES     
+
+08:00     MATES           E.F.           BIOLOGIA            ESPAÑOL          E.F.
+
+09:00    CATALAN          E.F.           PLASTICA            ESPAÑOL          E.F.
+
+10:00    ESPAÑOL         INGLES          PLASTICA           BIOLOGIA          MATES
+
+11:00       P              A                T                  I               O
+
+12:00      FyQ           INGLES            FyQ              BIOLOGIA         HISOTRIA
+
+13:00      FyQ           MATES           HISOTRIA           CATALAN          HISOTRIA   
+
+14:00     INGLES         MATES           HISOTRIA           CATALAN          PLASTICA
