@@ -10,9 +10,9 @@ echo "|    2. Abrir fichero                  |"
 echo "|                                      |"
 echo "|    3. Ver tareas                     |"
 echo "|                                      |"
-echo "|    3. Eliminar tarea                 |"
+echo "|    4. Eliminar tarea                 |"
 echo "|                                      |"
-echo "|    4. Salir                          |"
+echo "|    5. Salir                          |"
 echo "|                                      |"
 echo "----------------------------------------"
 read -p "seleccione una opción: " num
@@ -28,7 +28,7 @@ case $num in
 
     4) ./adam-diary/es/notes/delete.sh;;
 
-    4) echo "Hasta la próxima!";;
+    5) echo "Hasta la próxima!";;
 
     *) ./errors/errorNotes.sh
 
